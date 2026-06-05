@@ -3,7 +3,6 @@ import dotenv from "dotenv"
 import router from "./routes";
 import { ErrorHandlerMiddleware } from "@middlewares";
 import path from "path";
-import { connectRedis } from "./config/redis";
 import cors from "cors";
 dotenv.config();
 
@@ -17,10 +16,6 @@ app.use(router);
 app.use("/*", ErrorHandlerMiddleware.errorHandlerMiddleware)
 
 let PORT = process.env.APP_PORT || 9000
-async function bootstrap() {
-  await connectRedis();
-
-  app.listen(PORT, () => console.log("server started"));
-}
-
-bootstrap();
+app.listen(PORT, async () => {
+    console.log(`Server is running on port ${PORT}`);
+});
