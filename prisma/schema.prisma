@@ -1,0 +1,370 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum RegistrationType {
+  EMAIL
+  GOOGLE
+  TELEGRAM
+  FACEBOOK
+  GITHUB
+  OAUTH
+}
+
+enum AuthProvider {
+  GOOGLE
+  TELEGRAM
+  FACEBOOK
+  GITHUB
+  APPLE
+  MICROSOFT
+  OTHER
+}
+
+enum DesignType {
+  BUSINESS_CARD
+  DIGITAL_CARD
+  WEBSITE_TEMPLATE
+  QR_CODE
+  MARKETING_ASSET
+}
+
+enum DesignStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum TemplateCategory {
+  BUSINESS
+  MEDICAL
+  RESTAURANT
+  LAWYER
+  IT
+  CONSTRUCTION
+  EDUCATION
+  AUTOMOTIVE
+  REAL_ESTATE
+}
+
+enum QRCodeType {
+  WEBSITE
+  TELEGRAM
+  WHATSAPP
+  PHONE
+  EMAIL
+  VCARD
+  LOCATION
+  CUSTOM
+}
+
+enum WebsiteStatus {
+  DRAFT
+  PUBLISHED
+  DISABLED
+}
+
+enum BillingCycle {
+  MONTHLY
+  YEARLY
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  PAST_DUE
+  CANCELED
+  EXPIRED
+  TRIAL
+}
+
+enum PaymentProvider {
+  STRIPE
+  CLICK
+  PAYME
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum AssetType {
+  IMAGE
+  LOGO
+  ICON
+  QR
+  SAMPLE
+}
+
+enum AnalyticsEventType {
+  USER_REGISTRATION
+  DESIGN_CREATION
+  WEBSITE_VIEW
+  QR_SCAN
+  REVENUE
+  SUBSCRIPTION_PURCHASE
+}
+
+model Role {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  users       User[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model User {
+  id                  String          @id @default(uuid())
+  firstName           String
+  lastName            String
+  email               String          @unique
+  password            String?
+  registrationType    RegistrationType @default(EMAIL)
+  isEmailVerified     Boolean         @default(false)
+  avatarUrl           String?
+  lastLoginAt         DateTime?
+  resetPasswordToken  String?
+  resetPasswordExpires DateTime?
+  role                Role?           @relation(fields: [roleId], references: [id])
+  roleId              String?
+  businesses          Business[]
+  subscriptions       Subscription[]
+  payments            Payment[]
+  assets              Asset[]
+  authAccounts        AuthAccount[]
+  analyticsEvents     AnalyticsEvent[]
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt
+}
+
+model SuperAdmin {
+  id                 String        @id @default(uuid())
+  firstName          String
+  lastName           String
+  email              String        @unique
+  username           String        @unique
+  password           String?
+  provider           AuthProvider? 
+  providerAccountId  String?
+  permissions        Json?
+  isActive           Boolean       @default(true)
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+}
+
+model AuthAccount {
+  id                 String        @id @default(uuid())
+  user               User          @relation(fields: [userId], references: [id])
+  userId             String
+  provider           AuthProvider
+  providerAccountId  String
+  accessToken        String?
+  refreshToken       String?
+  expiresAt          DateTime?
+  tokenType          String?
+  scope              String?
+  idToken            String?
+  profile            Json?
+  createdAt          DateTime      @default(now())
+  updatedAt          DateTime      @updatedAt
+}
+
+model Business {
+  id          String      @id @default(uuid())
+  owner       User        @relation(fields: [ownerId], references: [id])
+  ownerId     String
+  name        String
+  slug        String      @unique
+  description String?
+  industry    String?
+  logoUrl     String?
+  phone       String?
+  email       String?
+  address     String?
+  website     String?
+  socialLinks Json?
+  designs     Design[]
+  qrCodes     QRCode[]
+  websites    Website[]
+  assets      Asset[]
+  analyticsEvents AnalyticsEvent[]
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model Design {
+  id         String      @id @default(uuid())
+  business   Business?   @relation(fields: [businessId], references: [id])
+  businessId String?
+  title      String
+  slug       String      @unique
+  type       DesignType  @default(BUSINESS_CARD)
+  status     DesignStatus @default(DRAFT)
+  data       Json
+  pages      DesignPage[]
+  isTemplate Boolean     @default(false)
+  template   Template?   @relation(fields: [templateId], references: [id])
+  templateId String?
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+}
+
+model DesignPage {
+  id        String   @id @default(uuid())
+  design    Design   @relation(fields: [designId], references: [id])
+  designId  String
+  name      String
+  width     Int      @default(1050)
+  height    Int      @default(600)
+  elements  Json
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Template {
+  id          String           @id @default(uuid())
+  title       String
+  category    TemplateCategory
+  tags        String[]
+  description String?
+  previewUrl  String?
+  data        Json
+  isPremium   Boolean          @default(false)
+  featured    Boolean          @default(false)
+  trending    Boolean          @default(false)
+  designs     Design[]
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+}
+
+model QRCode {
+  id         String      @id @default(uuid())
+  business   Business?   @relation(fields: [businessId], references: [id])
+  businessId String?
+  title      String?
+  slug       String      @unique
+  type       QRCodeType  @default(WEBSITE)
+  data       Json
+  scanCount  Int         @default(0)
+  scans      QRScan[]
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+}
+
+model QRScan {
+  id          String   @id @default(uuid())
+  qrCode      QRCode   @relation(fields: [qrCodeId], references: [id])
+  qrCodeId    String
+  scannedAt   DateTime @default(now())
+  country     String?
+  device      String?
+  browser     String?
+  ipAddress   String?
+  userAgent   String?
+}
+
+model Website {
+  id           String          @id @default(uuid())
+  business     Business        @relation(fields: [businessId], references: [id])
+  businessId   String
+  title        String
+  subdomain    String?         @unique
+  customDomain String?         @unique
+  status       WebsiteStatus   @default(DRAFT)
+  seo          Json?
+  config       Json?
+  pages        WebsitePage[]
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+}
+
+model WebsitePage {
+  id        String   @id @default(uuid())
+  website   Website  @relation(fields: [websiteId], references: [id])
+  websiteId String
+  title     String
+  slug      String
+  blocks    Json
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Plan {
+  id          String         @id @default(uuid())
+  name        String
+  slug        String         @unique
+  description String?
+  priceCents  Int
+  currency    String         @default("USD")
+  billingCycle BillingCycle  @default(MONTHLY)
+  features    String[]
+  isDefault   Boolean        @default(false)
+  subscriptions Subscription[]
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+}
+
+model Subscription {
+  id            String             @id @default(uuid())
+  user          User               @relation(fields: [userId], references: [id])
+  userId        String
+  plan          Plan               @relation(fields: [planId], references: [id])
+  planId        String
+  status        SubscriptionStatus @default(ACTIVE)
+  startsAt      DateTime           @default(now())
+  endsAt        DateTime?
+  metadata      Json?
+  payments      Payment[]
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
+}
+
+model Payment {
+  id               String          @id @default(uuid())
+  user             User            @relation(fields: [userId], references: [id])
+  userId           String
+  subscription     Subscription?   @relation(fields: [subscriptionId], references: [id])
+  subscriptionId   String?
+  provider         PaymentProvider
+  providerPaymentId String?        @unique
+  amountCents      Int
+  currency         String          @default("USD")
+  status           PaymentStatus   @default(PENDING)
+  metadata         Json?
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+}
+
+model Asset {
+  id          String    @id @default(uuid())
+  business    Business? @relation(fields: [businessId], references: [id])
+  businessId  String?
+  user        User?     @relation(fields: [userId], references: [id])
+  userId      String?
+  type        AssetType
+  url         String
+  meta        Json?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model AnalyticsEvent {
+  id          String             @id @default(uuid())
+  user        User?              @relation(fields: [userId], references: [id])
+  userId      String?
+  business    Business?          @relation(fields: [businessId], references: [id])
+  businessId  String?
+  type        AnalyticsEventType
+  payload     Json?
+  createdAt   DateTime           @default(now())
+}

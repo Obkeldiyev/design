@@ -1,0 +1,107 @@
+JSON insert examples for Prisma models in the Cardify starter app.
+
+1) Insert a Design with canvas and elements
+
+const design = await prisma.design.create({
+  data: {
+    title: "Ali Auto Card",
+    slug: "ali-auto-card",
+    type: "BUSINESS_CARD",
+    data: {
+      canvas: { width: 1050, height: 600 },
+      elements: [
+        { id: "1", type: "text", text: "Ali Auto", x: 100, y: 120 },
+        { id: "2", type: "qr", value: "https://ali-auto.com", x: 800, y: 300 }
+      ]
+    },
+    pages: {
+      create: [
+        {
+          name: "Front",
+          width: 1050,
+          height: 600,
+          elements: [
+            { id: "1", type: "text", text: "Ali Auto", x: 80, y: 100, fontSize: 48 }
+          ]
+        }
+      ]
+    }
+  }
+})
+
+2) Update a DesignPage JSON field
+
+const page = await prisma.designPage.update({
+  where: { id: "page-id" },
+  data: {
+    elements: {
+      set: [
+        { id: "1", type: "text", text: "Ali Auto", x: 80, y: 100, fontSize: 48 },
+        { id: "2", type: "phone", text: "+998 90 123 45 67", x: 80, y: 200 }
+      ]
+    }
+  }
+})
+
+3) Create a Template with full JSON payload
+
+const template = await prisma.template.create({
+  data: {
+    title: "Modern Business Card",
+    category: "BUSINESS",
+    tags: ["modern", "blue", "business"],
+    data: {
+      canvas: { width: 1050, height: 600 },
+      elements: [
+        { id: "1", type: "text", text: "BrandCard", style: { fontSize: 38, color: "#1E40AF" } }
+      ]
+    }
+  }
+})
+
+4) Create a QRCode record with JSON data
+
+const qrCode = await prisma.qRCode.create({
+  data: {
+    title: "Ali Auto Contact",
+    slug: "ali-auto-qr",
+    type: "VCARD",
+    data: {
+      url: "https://platform.com/card/ali-auto",
+      label: "Save Contact",
+      color: "#000000"
+    }
+  }
+})
+
+5) Create WebsitePage blocks JSON
+
+const websitePage = await prisma.websitePage.create({
+  data: {
+    websiteId: "website-id",
+    title: "Home",
+    slug: "home",
+    blocks: [
+      {
+        type: "hero",
+        title: "Ali Auto",
+        subtitle: "Premium automotive services",
+        buttons: [{ text: "Contact", url: "/contact" }]
+      },
+      {
+        type: "services",
+        items: [
+          { title: "Repair", description: "Fast service" },
+          { title: "Maintenance", description: "Reliable care" }
+        ]
+      }
+    ]
+  }
+})
+
+6) JSON update rules
+
+- Use nested create/update when working with related records.
+- Use plain JavaScript objects for JSON fields.
+- Avoid storing fully rendered images; save the source data model.
+- Keep versioned JSON structures so you can migrate editor schemas later.
