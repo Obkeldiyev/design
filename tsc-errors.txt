@@ -1,0 +1,166 @@
+src/config/passport.ts(9,52): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'false | User | null | undefined'.
+src/config/passport.ts(47,13): error TS2353: Object literal may only specify known properties, and 'provider_providerAccountId' does not exist in type 'AuthAccountWhereUniqueInput'.
+src/middlewares/auth.middleware.ts(2,29): error TS2307: Cannot find module '@utils/jwt' or its corresponding type declarations.
+src/routes/business.routes.ts(7,18): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/business.routes.ts(8,17): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/business.routes.ts(9,20): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/business.routes.ts(10,20): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/business.routes.ts(11,23): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/design.routes.ts(7,18): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/design.routes.ts(8,17): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/design.routes.ts(9,20): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/design.routes.ts(10,20): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/design.routes.ts(11,23): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/superadmin.routes.ts(7,24): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => void' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => void' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/superadmin.routes.ts(8,22): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => void' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => void' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/superadmin.routes.ts(8,68): error TS2339: Property 'getStats' does not exist on type 'typeof SuperAdminController'.
+src/routes/user.routes.ts(2,32): error TS2307: Cannot find module '@controllers/user.controller' or its corresponding type declarations.
+src/routes/user.routes.ts(3,33): error TS2307: Cannot find module '@middlewares/auth.middleware' or its corresponding type declarations.
+src/routes/website.routes.ts(7,18): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/website.routes.ts(8,17): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/website.routes.ts(9,20): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/website.routes.ts(10,20): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/routes/website.routes.ts(11,23): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to parameter of type 'RequestHandlerParams<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+      Type '(req: AuthenticatedRequest, res: Response<any, Record<string, any>>, next: NextFunction) => Promise<void>' is not assignable to type 'RequestHandler<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+        Types of parameters 'req' and 'req' are incompatible.
+          Type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>' is not assignable to type 'AuthenticatedRequest'.
+            Types of property 'user' are incompatible.
+              Type 'User | undefined' is not assignable to type '{ id: string; email: string; roleId?: string | null | undefined; } | undefined'.
+                Type 'User' is missing the following properties from type '{ id: string; email: string; roleId?: string | null | undefined; }': id, email
+src/utils/jwt.ts(5,14): error TS2769: No overload matches this call.
+  Overload 1 of 5, '(payload: string | object | Buffer, secretOrPrivateKey: null, options?: (SignOptions & { algorithm: "none"; }) | undefined): string', gave the following error.
+    Argument of type 'string' is not assignable to parameter of type 'null'.
+  Overload 2 of 5, '(payload: string | object | Buffer, secretOrPrivateKey: Secret | PrivateKeyInput | JsonWebKeyInput, options?: SignOptions | undefined): string', gave the following error.
+    Type 'string' is not assignable to type 'number | StringValue | undefined'.
+  Overload 3 of 5, '(payload: string | object | Buffer, secretOrPrivateKey: Secret | PrivateKeyInput | JsonWebKeyInput, callback: SignCallback): void', gave the following error.
+    Object literal may only specify known properties, and 'expiresIn' does not exist in type 'SignCallback'.
